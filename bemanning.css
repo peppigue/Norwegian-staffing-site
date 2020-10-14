@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.page_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+/*
+.page_container div {
+    margin-bottom: -4px;
+}
+*/
+@media only screen and (max-width: 500) {
+    
+.page_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+}

@@ -1,0 +1,18 @@
+* {
+    background-color: rgb(100, 30, 30);
+    color: rgba(200, 130, 30, 0.9);
+    display: block;
+    display: grid;
+}
+
+.maindiv {
+    grid-row: 1fr 1fr 1fr;
+
+}
+
+@media only screen and (max-width: 700px) {
+    .maindiv {
+        grid-row: 1fr 1fr;
+
+    }
+}
