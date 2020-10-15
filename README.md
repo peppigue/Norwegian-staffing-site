@@ -16,8 +16,10 @@ _Norwegian staffing/headhunting market is small enough for manual oversight over
 
 Norwegian language version first created, english/other version(s) to be added later
 
-##### Opportunities
+#### Opportunities
 
 - Expand to Swedish/other market(s)?
+
+### Visual-design-layout
 
 Intention to add multiple hyper-dynamic (deep) themes/skins
