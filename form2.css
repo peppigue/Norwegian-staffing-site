@@ -63,6 +63,7 @@ span {
 
 form {
     text-align: center;
+    border-radius: 70px;
     background-color: rgba(46, 139, 87, .7);
     color: rgb(250, 128, 114);
 }
