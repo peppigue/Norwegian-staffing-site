@@ -20,10 +20,10 @@ Norwegian language version first created, english/other version(s) to be added l
 
 - Creator intention is this to be a minor revenue source/side business
 - Add unintrusive info about how to support the creator(s)
--- via vipps (nearly ubiquitous Norwegian mobile payment platform)?
--- buymeacoffee.com?
--- other?
--- NO ADS
+  - via vipps (nearly ubiquitous Norwegian mobile payment platform)?
+  - buymeacoffee.com?
+  - other?
+ - NO ADS
 
 #### Opportunities
 
