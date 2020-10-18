@@ -11,166 +11,202 @@
 
 <!-- side med skjema for å legge til nye aktører i oversikten -->
 
+<!-- legge til enhet i database/fil via skjema - php og sql? php og csv? -->
+
 <body>
 	<div class="header_container" name="header_container" id="header_container">
 		<div><b>Logo</b></div>
-		<header><b>Header</b></header> <!-- legge til enhet i database/fil via skjema - php og sql? php og csv? -->
+		<div><b>Header</b></div>
 		<div><b>Menu</b></div>
 	</div>
+	<div class="nav_container" name="nav_container" id="nav_container">
+		<div><b><a href="oversikt.php">Forside</a></b></div>
+		<div><b><a href="form.html">Legg til</a></b></div>
+	</div>
+	<div>
+		<br>
+		<!-- placeholder / spacer -->
+	</div>
 	<main id="main_container" name="main_container" class="main_container">
-		<div name="placeholder1"></div>
+		<div class="themediv">
+			<!-- theme menu - buttons instead of form? -->
+			<li><button class="button">morgen</button></li>
+			<li><button class="button">club</button></li>
+			<li><button class="button">sol</button></li>
+			<li><button class="button">boppigom</button></li>
+			<li><button class="button">kooky</button></li>
+			<form action="theme.php" method="POST" style="border-radius: 10px; background-color: var(--fill-seethru-color3);">
+				<ul>
+					<li><label class="themeradiolabel" for="radio_morning"><input type="radio" id="themeradio"
+								name="themeradio" value="morning" class="radioinput">morgen</label></li>
+					<li><label class="themeradiolabel" for="radio_club"><input type="radio" id="themeradio"
+								name="themeradio" value="club" class="radioinput">club</li>
+					<li><label class="themeradiolabel" for="radio_sun"><input type="radio" id="themeradio"
+								name="themeradio" value="sun" class="radioinput">sol</li>
+					<li><label class="themeradiolabel" for="radio_boppigom"><input type="radio" id="themeradio"
+								name="themeradio" value="boppigom" class="radioinput">boppigom</li>
+					<li><label class="themeradiolabel" for="radio_kooky"><input type="radio" id="themeradio"
+								name="themeradio" value="kooky" class="radioinput">kooky</li>
+				</ul>
+			</form>
+		</div>
 		<form name="vikarskjema" action="form.php" method="POST" enctype="multipart/form-data">
 			<br>
 			<div class="sectionhead"><label class="sectionheadlabel" for="navn">N a v n</label></div>
+			<br>
 			<input class="text-inputs" id="navn" type="text" name="navn" placeholder="Bitten Berntsen">
 			<br>
 			<br>
+			<br>
 			<div class="sectionhead"><label class="sectionheadlabel" for="nettadresse">N e t t s i d e</label></div>
+			<br>
 			<input class="text-inputs" type="text" id="nettadresse" name="nettadresse" placeholder="example.com">
+			<br>
 			<br>
 			<br>
 			<div class="sectionhead"><label class="sectionheadlabel">T j e n e s t e r</label></div>
 
 			<div class="labeldiv"><label class="checkbox-label" for="vikartjenester">Vikartjenester <input
-						type="checkbox" id="vikartjenester" name="tjenester[vikartjenester]"> <span
-						class="checkboxspan"></span> </label></div>
+						type="checkbox" id="vikartjenester" name="tjenester[]" value="vikartjenester"> </label>
+			</div>
 			<div class="labeldiv"><label class="checkbox-label" for="headhunting">Headhunting <input type="checkbox"
-						id="headhunting" name="tjenester[headhunting]"> <span class="checkboxspan"></span> </label>
+						id="headhunting" name="tjenester[]" value="headhunting"> </label>
 			</div>
 			<div class="labeldiv"><label class="checkbox-label" for="personalutvikling">Personalutvikling <input
-						type="checkbox" id="personalutvikling" name="tjenester[personalutvikling]"> <span
-						class="checkboxspan"></span> </label></div>
+						type="checkbox" id="personalutvikling" name="tjenester[]" value="personalutvikling">
+				</label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="kurs">Kurs <input type="checkbox" id="kurs"
-						name="tjenester[kurs]"> <span class="checkboxspan"></span> </label></div>
+						name="tjenester[]" value="kurs"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="organisasjonsutvikling">Organisasjonsutvikling
-					<input type="checkbox" id="organisasjonsutvikling" name="tjenester[organisasjonsutvikling]"> <span
-						class="checkboxspan"></span> </label></div>
+					<input type="checkbox" id="organisasjonsutvikling" name="tjenester[]"
+						value="organisasjonsutvikling">
+				</label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="karriererådgivning">Karriererådgivning <input
-						type="checkbox" id="karriererådgivning" name="tjenester[karriererådgivning]"> <span
-						class="checkboxspan"></span> </label></div>
+						type="checkbox" id="karriererådgivning" name="tjenester[]" value="karriererådgivning">
+				</label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="bedriftsrådgivning">Bedriftsrådgivning <input
-						type="checkbox" id="bedriftsrådgivning" name="tjenester[bedriftsrådgivning]"> <span
-						class="checkboxspan"></span> </label></div>
+						type="checkbox" id="bedriftsrådgivning" name="tjenester[]" value="bedriftsrådgivning">
+				</label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="konflikthåndtering">Konflikthåndtering <input
-						type="checkbox" id="konflikthåndtering" name="tjenester[konflikthåndtering]"> <span
-						class="checkboxspan"></span> </label></div>
+						type="checkbox" id="konflikthåndtering" name="tjenester[]" value="konflikthåndtering">
+				</label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="event">Event <input type="checkbox" id="event"
-						name="tjenester[event]"> <span class="checkboxspan"></span> </label></div>
+						name="tjenester[]" value="event"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="offboarding">Offboarding <input type="checkbox"
-						id="offboarding" name="tjenester[offboarding]"> <span class="checkboxspan"></span> </label>
+						id="offboarding" name="tjenester[]" value="offboarding"> </label>
 			</div>
 			<div class="labeldiv"><label class="checkbox-label" for="lederutvikling">Lederutvikling <input
-						type="checkbox" id="lederutvikling" name="tjenester[lederutvikling]"> <span
-						class="checkboxspan"></span> </label></div>
+						type="checkbox" id="lederutvikling" name="tjenester[]" value="lederutvikling"> </label>
+			</div>
+			<br>
 			<br>
 			<br>
 			<div class="sectionhead"><label class="sectionheadlabel">B r a n s j e r</label></div>
 
 			<div class="labeldiv"><label class="checkbox-label" for="it">IT <input type="checkbox" id="it"
-						name="kategori[it]"> <span class="checkboxspan"></span> </label></div>
+						name="kategori[]" value="it"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="rengjøring">Rengjøring <input type="checkbox"
-						id="rengjøring" name="kategori[rengjøring]"> <span class="checkboxspan"></span> </label></div>
+						id="rengjøring" name="kategori[]" value="rengjøring"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="økonomi">Økonomi <input type="checkbox"
-						id="økonomi" name="kategori[økonomi]"> <span class="checkboxspan"></span> </label></div>
+						id="økonomi" name="kategori[]" value="økonomi"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="ledelse">Ledelse <input type="checkbox"
-						id="ledelse" name="kategori[ledelse]"> <span class="checkboxspan"></span> </label></div>
+						id="ledelse" name="kategori[]" value="ledelse"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="vaktmester">Vaktmester <input type="checkbox"
-						id="vaktmester" name="kategori[vaktmester]"> <span class="checkboxspan"></span> </label></div>
+						id="vaktmester" name="kategori[]" value="vaktmester"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="håndverk">Håndverk <input type="checkbox"
-						id="håndverk" name="kategori[håndverk]"> <span class="checkboxspan"></span> </label></div>
+						id="håndverk" name="kategori[]" value="håndverk"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="helse">Helse <input type="checkbox" id="helse"
-						name="kategori[helse]"> <span class="checkboxspan"></span> </label></div>
+						name="kategori[]" value="helse"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="lager">Lager <input type="checkbox" id="lager"
-						name="kategori[lager]"> <span class="checkboxspan"></span> </label></div>
+						name="kategori[]" value="lager"> </label></div>
+			<br>
 			<br>
 			<br>
 			<div class="sectionhead"><label class="sectionheadlabel">G e o g r a f i s k • o m r å d e</label></div>
 
 			<div class="labeldiv"><label class="checkbox-label" for="oslo">Oslo <input type="checkbox" id="oslo"
-				name="område[oslo]"> <span class="checkboxspan"></span> </label></div>
+						name="område[]" value="oslo"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="østfold">Østfold <input type="checkbox"
-				id="østfold" name="område[østfold]"> <span class="checkboxspan"></span> </label></div>
+						id="østfold" name="område[]" value="østfold"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="follo">Follo <input type="checkbox" id="follo"
-						name="område[follo]"> <span class="checkboxspan"></span> </label></div>
+						name="område[]" value="follo"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="ringerike">Ringerike <input type="checkbox"
-						id="ringerike" name="område[ringerike]"> <span class="checkboxspan"></span> </label></div>
+						id="ringerike" name="område[]" value="ringerike"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="romerike">Romerike <input type="checkbox"
-				id="romerike" name="område[romerike]"> <span class="checkboxspan"></span> </label></div>
+						id="romerike" name="område[]" value="romerike"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="asker">Asker <input type="checkbox" id="asker"
-						name="område[asker]"> <span class="checkboxspan"></span> </label></div>
+						name="område[]" value="asker"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="bærum">Bærum <input type="checkbox" id="bærum"
-						name="område[bærum]"> <span class="checkboxspan"></span> </label></div>
+						name="område[]" value="bærum"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="buskerud">Buskerud <input type="checkbox"
-						id="buskerud" name="område[buskerud]"> <span class="checkboxspan"></span> </label></div>
+						id="buskerud" name="område[]" value="buskerud"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="vestfold">Vestfold <input type="checkbox"
-						id="vestfold" name="område[vestfold]"> <span class="checkboxspan"></span> </label></div>
+						id="vestfold" name="område[]" value="vestfold"> </label></div>
 			<div class="labeldiv"><label class="checkbox-label" for="telemark">Telemark <input type="checkbox"
-						id="telemark" name="område[telemark]"> <span class="checkboxspan"></span> </label></div>
-						<div class="labeldiv"><label class="checkbox-label" for="agder">Agder <input type="checkbox" id="agder"
-							name="område[agder]"> <span class="checkboxspan"></span> </label></div>
-							<div class="labeldiv"><label class="checkbox-label" for="rogaland">Rogaland <input type="checkbox"
-								id="rogaland" name="område[rogaland]"> <span class="checkboxspan"></span> </label></div>
-								<div class="labeldiv"><label class="checkbox-label" for="hordaland">Hordaland <input type="checkbox"
-									id="hordaland" name="område[hordaland]"> <span class="checkboxspan"></span> </label></div>
-									<div class="labeldiv"><label class="checkbox-label" for="bergen">Bergen <input type="checkbox" id="bergen"
-										name="område[bergen]"> <span class="checkboxspan"></span> </label></div>
-										<div class="labeldiv"><label class="checkbox-label" for="sunnmøre">Sunnmøre <input type="checkbox"
-											id="sunnmøre" name="område[sunnmøre]"> <span class="checkboxspan"></span> </label></div>
-											<div class="labeldiv"><label class="checkbox-label" for="romsdal">Romsdal <input type="checkbox"
-												id="romsdal" name="område[romsdal]"> <span class="checkboxspan"></span> </label></div>
-												<div class="labeldiv"><label class="checkbox-label" for="nordmøre">Nordmøre <input type="checkbox"
-													id="nordmøre" name="område[nordmøre]"> <span class="checkboxspan"></span> </label></div>
-													<div class="labeldiv"><label class="checkbox-label" for="sør_trøndelag">Sør-Trøndelag <input type="checkbox"
-														id="sør_trøndelag" name="område[sør_trøndelag]"> <span class="checkboxspan"></span> </label>
-													</div>
-													<div class="labeldiv"><label class="checkbox-label" for="trondheim">Trondheim <input type="checkbox"
-														id="trondheim" name="område[trondheim]"> <span class="checkboxspan"></span> </label></div>
-														<div class="labeldiv"><label class="checkbox-label" for="nord_trøndelag">Nord Trøndelag <input
-															type="checkbox" id="nord_trøndelag" name="område[nord_trøndelag]"> <span
-															class="checkboxspan"></span> </label></div>
-															<div class="labeldiv"><label class="checkbox-label" for="nordland_sør">Nordland sør <input type="checkbox"
-																id="nordland_sør" name="område[nordland_sør]"> <span class="checkboxspan"></span> </label></div>
-																<div class="labeldiv"><label class="checkbox-label" for="nordland_nord">Nordland nord <input type="checkbox"
-																	id="nordland_nord" name="område[nordland_nord]"> <span class="checkboxspan"></span> </label>
-																</div>
-																<div class="labeldiv"><label class="checkbox-label" for="lofoten">Lofoten <input type="checkbox"
-																	id="lofoten" name="område[lofoten]"> <span class="checkboxspan"></span> </label></div>
-																	<div class="labeldiv"><label class="checkbox-label" for="bodø">Bodø <input type="checkbox" id="bodø"
-																		name="område[bodø]"> <span class="checkboxspan"></span> </label></div>
-																		<div class="labeldiv"><label class="checkbox-label" for="narvik">Narvik <input type="checkbox" id="narvik"
-																			name="område[narvik]"> <span class="checkboxspan"></span> </label></div>
-																			<div class="labeldiv"><label class="checkbox-label" for="harstad">Harstad <input type="checkbox"
-						id="harstad" name="område[harstad]"> <span class="checkboxspan"></span> </label></div>
-						<div class="labeldiv"><label class="checkbox-label" for="indre_troms">Indre Troms <input type="checkbox"
-							id="indre_troms" name="område[indre_troms]"> <span class="checkboxspan"></span> </label></div>
-							<div class="labeldiv"><label class="checkbox-label" for="troms_nord">Troms nord <input type="checkbox"
-								id="troms_nord" name="område[troms_nord]"> <span class="checkboxspan"></span> </label></div>
-								<div class="labeldiv"><label class="checkbox-label" for="tromsø">Tromsø <input type="checkbox" id="tromsø"
-						name="område[tromsø]"> <span class="checkboxspan"></span> </label></div>
-						<div class="labeldiv"><label class="checkbox-label" for="finnmark_sør">Finnmark sør <input type="checkbox"
-							id="finnmark_sør" name="område[finnmark_sør]"> <span class="checkboxspan"></span> </label></div>
-							<div class="labeldiv"><label class="checkbox-label" for="finnmark_nord">Finnmark nord <input type="checkbox"
-								id="finnmark_nord" name="område[finnmark_nord]"> <span class="checkboxspan"></span> </label>
-							</div>
-							<div class="labeldiv"><label class="checkbox-label" for="sverige">Sverige <input type="checkbox"
-										id="sverige" name="område[sverige]"> <span class="checkboxspan"></span> </label></div>
-							<div class="labeldiv"><label class="checkbox-label" for="polen">Polen <input type="checkbox" id="polen"
-										name="område[polen]"> <span class="checkboxspan"></span> </label></div>
-							<div class="labeldiv"><label class="checkbox-label" for="baltikum">Baltikum <input type="checkbox"
-										id="baltikum" name="område[baltikum]"> <span class="checkboxspan"></span> </label></div>
-							<div class="labeldiv"><label class="checkbox-label" for="danmark">Danmark <input type="checkbox"
-										id="danmark" name="område[danmark]"> <span class="checkboxspan"></span> </label></div>
-							<div class="labeldiv"><label class="checkbox-label" for="utenlands">Utenlands forøvrig <input
-										type="checkbox" id="utenlands" name="område[utenlands]"> <span class="checkboxspan"></span>
-								</label></div>
-							
-							<br>
-
+						id="telemark" name="område[]" value="telemark"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="agder">Agder <input type="checkbox" id="agder"
+						name="område[]" value="agder"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="rogaland">Rogaland <input type="checkbox"
+						id="rogaland" name="område[]" value="rogaland"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="hordaland">Hordaland <input type="checkbox"
+						id="hordaland" name="område[]" value="hordaland"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="bergen">Bergen <input type="checkbox" id="bergen"
+						name="område[]" value="bergen"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="sunnmøre">Sunnmøre <input type="checkbox"
+						id="sunnmøre" name="område[]" value="sunnmøre"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="romsdal">Romsdal <input type="checkbox"
+						id="romsdal" name="område[]" value="romsdal"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="nordmøre">Nordmøre <input type="checkbox"
+						id="nordmøre" name="område[]" value="nordmøre"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="sør_trøndelag">Trøndelag sør<input type="checkbox"
+						id="sør_trøndelag" name="område[]" value="sør_trøndelag"> </label>
+			</div>
+			<div class="labeldiv"><label class="checkbox-label" for="trondheim">Trondheim <input type="checkbox"
+						id="trondheim" name="område[]" value="trondheim"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="nord_trøndelag">Trøndelag nord<input
+						type="checkbox" id="nord_trøndelag" name="område[]" value="nord_trøndelag"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="nordland_sør">Nordland sør <input type="checkbox"
+						id="nordland_sør" name="område[]" value="nordland_sør"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="nordland_nord">Nordland nord <input type="checkbox"
+						id="nordland_nord" name="område[]" value="nordland_nord"> </label>
+			</div>
+			<div class="labeldiv"><label class="checkbox-label" for="lofoten">Lofoten <input type="checkbox"
+						id="lofoten" name="område[]" value="lofoten"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="bodø">Bodø <input type="checkbox" id="bodø"
+						name="område[]" value="bodø"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="narvik">Narvik <input type="checkbox" id="narvik"
+						name="område[]" value="narvik"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="harstad">Harstad <input type="checkbox"
+						id="harstad" name="område[]" value="harstad"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="indre_troms">Indre Troms <input type="checkbox"
+						id="indre_troms" name="område[]" value="indre_troms"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="troms_nord">Troms nord <input type="checkbox"
+						id="troms_nord" name="område[]" value="troms_nord"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="tromsø">Tromsø <input type="checkbox" id="tromsø"
+						name="område[]" value="tromsø"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="finnmark_sør">Finnmark sør <input type="checkbox"
+						id="finnmark_sør" name="område[]" value="finnmark_sør"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="finnmark_nord">Finnmark nord <input type="checkbox"
+						id="finnmark_nord" name="område[]" value="finnmark_nord"> </label>
+			</div>
+			<div class="labeldiv"><label class="checkbox-label" for="sverige">Sverige <input type="checkbox"
+						id="sverige" name="område[]" value="sverige"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="polen">Polen <input type="checkbox" id="polen"
+						name="område[]" value="polen"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="baltikum">Baltikum <input type="checkbox"
+						id="baltikum" name="område[]" value="baltikum"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="danmark">Danmark <input type="checkbox"
+						id="danmark" name="område[]" value="danmark"> </label></div>
+			<div class="labeldiv"><label class="checkbox-label" for="utenlands">Utlandet forøvrig <input type="checkbox"
+						id="utenlands" name="område[]" value="utenlands">
+				</label></div>
 			<br>
-
+			<br>
+			<br>
 			<div class="sectionhead"><label class="sectionheadlabel" for="notat">E k s t r a • n o t a t</label></div>
+			<br>
 			<textarea id="notat" name="notat"></textarea>
-
+			<br>
 			<br>
 			<br>
 			<div>
@@ -179,15 +215,17 @@
 				</span>
 			</div>
 			<br>
+			<br>
 		</form>
-		<!-- <div>Placeholder</div> -->
+		<!-- right element to balance layout - not needed ?? <div>Placeholder</div> -->
 	</main>
 	<footer id="footer">
 		<h6>Copyright 2020 - Sitegod Petter Nybråten
 			<details>
-			<a href="mailto:peppigue@gmail.com">Mail me</a>
-			<tel>Call me</tel>
-		</details></h6>
+				<a href="mailto:peppigue@gmail.com">Mail me</a>
+				<tel>Call me</tel>
+			</details>
+		</h6>
 	</footer>
 
 </body>

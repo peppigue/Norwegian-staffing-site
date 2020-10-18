@@ -1,123 +1,108 @@
 <?php
 
-// fange data fra web form POST
-$formData[] = $_POST;
+// capture data from web form POST submission
+$formDataName = htmlspecialchars($_POST['navn']);
+$formDataUrl = htmlspecialchars($_POST['nettadresse']);
+$formDataNote = htmlspecialchars($_POST['notat']);
 
-echo($formData["vikartjenester"]);
-echo($formData["headhunting"]);
-echo($formData["personalutvikling"]);
-echo($formData["kurs"]);
-echo($formData["organisasjonsutvikling"]);
-echo($formData["karriererådgivning"]);
-echo($formData["bedriftsrådgivning"]);
-echo($formData["konflikthåndtering"]);
 
-// Løsning 1:
-// bruke csv-fil som db
+/*
+// Solution 1:
+// enter data into sql db
+
+// connection to db
+include phpdbconnect.php
+
+$openedConnectionToDb = openConn();
+
+echo('Connected to db');
+
+
+// sql query to edit table
+$sqlStatement = "INSERT INTO bemanning(name, url, notat) VALUE $formDataName, $formDataUrl, $formDataNote";
+
+function updateSqlDb() {
+
+  mysqli_query($sqlStatement);
+
+};
+
+closeConn($openedConnectionToDb);
+*/
+
+
+// Solution 2:
+// use csv file as db
 
 $dbFile = 'bemanning.csv';
 
 $fileAccess = fopen($dbFile, 'a');
 
-/*
-for($i = 0 ; $i < array_count_values($formData) ; $i++) {
-    echo($i.'\n');
-};
-*/
+fwrite($fileAccess, PHP_EOL . "navn:" . $formDataName);
+fwrite($fileAccess, PHP_EOL . "nettside:" . $formDataUrl);
+fwrite($fileAccess, PHP_EOL . "notat:" . $formDataNote);
 
+fwrite($fileAccess, PHP_EOL);
+
+// write to file the checkbox values
+fwrite($fileAccess, "tjenester:" . PHP_EOL);
+
+foreach ($_POST['tjenester'] as $arrayMember => $value) {
+  fwrite($fileAccess, $value . "££");
+}
+
+fwrite($fileAccess, PHP_EOL);
+
+fwrite($fileAccess, "kategori:" . PHP_EOL);
+
+foreach ($_POST['kategori'] as $arrayMember => $value) {
+  fwrite($fileAccess, $value . "££");
+}
+
+fwrite($fileAccess, PHP_EOL);
+
+fwrite($fileAccess, "område:" . PHP_EOL);
+
+foreach ($_POST['område'] as $arrayMember => $value) {
+  fwrite($fileAccess, $value . "££");
+}
+
+// separator between entries
+fwrite($fileAccess, PHP_EOL . "&&&&&");
 
 // close file after writing and reading
 fclose($fileAccess);
 
-// Løsning 2:
-// skrive data til sql db
-/*
-$servername = "peppigue.com.mysql";
-$username = "peppigue_combemanning";
-$password = "dontbeanegg";
-$dbname = "peppigue_combemanning";
+// write to db from csv
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// sql to edit table
-$sql = "";
-
-if ($conn->query($sql) === TRUE) {
-  echo "Edit successful";
-} else {
-  echo "Error creating table: " . $conn->error;
-}
-
-$conn->close();
-*/
-
-// oppdatere oversikt webside
-// $oversiktside = 'oversikt.html';
-
-
-
-/*
-name="vikartjenester">
-name="headhunting">
-name="personalutvikling">
-name="kurs">
-name="organisasjonsutvikling">
-name="karriererådgivning">
-name="bedriftsrådgivning">
-name="konflikthåndtering">
-name="event">
-name="offboarding">
-name="lederutvikling">
-name="it">
-name="rengjøring">
-name="økonomi">
-name="ledelse">
-name="vaktmester">
-name="håndverk">
-name="helse">
-name="lager">
-name="hele_norge">
-name="sverige">
-name="polen">
-name="baltikum">
-name="danmark">
-name="utenlands">
-name="oslo">
-name="østfold">
-name="follo">
-name="ringerike">
-name="romerike">
-name="asker">
-name="bærum">
-name="buskerud">
-name="vestfold">
-name="telemark">
-name="agder">
-name="rogaland">
-name="hordaland">
-name="bergen">
-name="sunnmøre">
-name="romsdal">
-name="nordmøre">
-name="sør_trøndelag">
-name="trondheim">
-name="nord_trøndelag">
-name="nordland_sør">
-name="nordland_nord">
-name="lofoten">
-name="bodø">
-name="narvik">
-name="harstad">
-name="indre_troms">
-name="troms_nord">
-name="tromsø">
-name="finnmark_sør">
-name="finnmark_nord">
-*/
 
 ?>
+
+<html>
+
+<head>
+
+  <!-- redirect automatically back to main/business directory page -->
+  <!-- 
+  <script>
+    setTimeout(function() {
+      window.location.href='oversikt.php'
+    }, 3500);
+  </script>
+ -->
+  <meta http-equiv="refresh" content="3.5;url=oversikt.php">
+
+</head>
+
+<body style="background-color: black; text-align: center">
+
+  <br>
+  <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 100px; color: white; background-color: black;">
+    Database oppdatert
+    <br>
+    <br>
+    redirecting...
+  </p>
+</body>
+
+</html>

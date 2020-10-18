@@ -1,0 +1,13 @@
+* {
+  border: solid 2px red;
+
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+}
+
+div {
+  display: inline-block;
+}

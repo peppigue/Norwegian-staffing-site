@@ -1,20 +1,37 @@
 /* lage themes med variabler på alle farger */
 :root {
---h1-color: rgba(32, 111, 32, 1);
---body-bgrcolor: rgba(44, 111, 100, 1);
---main-bgrcolor: rgba(25, 212, 25, 1);
---field-bgrcolor: rgba(6, 75, 63, 1);
---ptext-color: rgba(111, 41, 32, 1);
---detail1-color: rgba(64, 109, 5, 1);
---detail2-color: rgba(145, 53, 187, 1);
---detail3-color: rgba(69, 39, 70, 1);
---hover-color: rgba(200, 11, 190, 1);
+--light-color1: rgb(194, 240, 194);
+--light-color2: rgb(202, 221, 218);
+--light-color3: rgb(204, 236, 204);
+--light-color4: rgb(174, 187, 185);
+--light-color5: rgb(236, 214, 211);
+--dark-color1: rgb(51, 53, 48);
+--dark-color2: rgb(59, 52, 63);
+--dark-color3: rgb(47, 57, 85);
+--dark-color4: rgb(24, 71, 63);
+--dark-color5: rgb(58, 52, 34);
+--fill-seethru-color1: rgba(107, 17, 17, 0.5);
+--fill-seethru-color2: rgba(19, 51, 197, 0.5);
+--fill-seethru-color3: rgba(42, 156, 132, 0.5);
+--fill-seethru-color4: rgba(151, 160, 20, 0.5);
 }
 
+/*
+import colors/themes.css? form.css
+*/
+
 body {
-    background-image: url('bemanningbggif3.gif');
+    background-image: url('bemanning_bckgr_sommerduk.png');
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--light-color5);
 }
 
 .header_container {
@@ -22,7 +39,51 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
     font-size: 50px;
-    background-color: var(--detail2-color);
+    color: var(--light-color5);
+    background-color: var(--fill-seethru-color2);
+}
+
+.nav_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    font-size: 50px;
+    background-color: var(--fill-seethru-color4);
+}
+
+ul {
+    border: solid 1px red;
+    display: inline-block;
+    margin-top: 20px;
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+.themediv {
+    border: solid 1px red;
+    text-align: center;
+}
+
+.themeradiolabel {
+    border: solid 1px red;
+    display: block;
+    width: 90%;
+    background-color: var(--dark-color3);
+}
+
+.themeradiolabel:checked {
+    background-color: var(--dark-color1);
+}
+
+.themeradiolabel:hover {
+    color: var(--light-color2);
+}
+
+.radioinput {
+    visibility: hidden;
 }
 
 .main_container {
@@ -33,9 +94,9 @@ body {
 .labeldiv {
     display: inline-block;
     border-radius: 50px;
-    border: solid var(--field-bgrcolor);
-    background-color: var(--field-bgrcolor);
-    color: var(--ptext-color);
+    border: solid var(--fill-seethru-color2) 2px;
+    background-color: var(--fill-seethru-color2);
+    color: var(--light-color3);
     font-size: 18px;
     margin: 9px;
 }
@@ -49,7 +110,7 @@ body {
     display: inline-block;
     margin: 5px;
     border-radius: 50px;
-    background-color: var(--h1-color);
+    background-color: var(--dark-color2);
     text-align: center;
     font-size: 22px;
     font-weight: bolder;
@@ -68,8 +129,8 @@ span {
 form {
     text-align: center;
     border-radius: 70px;
-    background-color: var(--main-bgrcolor);
-    color: var(--h1-color);
+    background-color: var(--fill-seethru-color1);
+    color: var(--light-color4);
 }
 
 .text-inputs {
@@ -80,10 +141,15 @@ form {
 input, textarea {
     text-align: center;
     margin: 10px;
+    border: var(--fill-seethru-color3) 2px solid;
     border-radius: 50px;
-    background-color: var(--field-bgrcolor);
-    color: var(--detail2-color);
+    background-color: var(--fill-seethru-color3);
+    color: var(--light-color3);
     font-size: 18px;
+}
+
+input:focus, textarea:focus {
+    background-color: var(--dark-color3);
 }
 
 textarea {
@@ -91,18 +157,13 @@ textarea {
     height: 140px;
 }
 
-/* virker ikke */
-input:focus {
-    border-bottom: var(--detail1-color) solid 2px;
-}
-
 .labeldiv:hover, input:hover {
-    border: var(--detail1-color) solid;
+    border: var(--light-color1) solid 2px;
 }
 
 /* virker ikke */
-.labeldiv:checked {
-    background-color: var(--detail1-color);
+input:checkbox:checked > .labeldiv {
+    background-color: var(--dark1-color5);
 }
 
 button {
@@ -112,8 +173,8 @@ button {
     width: 90%;
     height: 80px;
     padding: 5px;
-    background-color: var(--detail3-color);
-    color: var(--detail1-color);
+    background-color: var(--dark-color4);
+    color: var(--light-color2);
     font-size: 35px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: oblique;
@@ -122,8 +183,8 @@ button {
 footer {
     padding: 0px;
     height: 80px;
-    background-color: var(--field-bgrcolor);
-    color: var(--ptext-color);
+    background-color: var(--dark-color4);
+    color: var(--light-color4);
     text-align: right;
     font-size: 20px;
 }
@@ -135,7 +196,7 @@ details {
 }
 
 footer:hover {
-    background-color: var(--hover-color);
+    background-color: var(--dark-color5);
 }
 
 @media screen and (max-width: 600px) {
